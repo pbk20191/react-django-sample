@@ -1,8 +1,9 @@
-import React, { type Ref, forwardRef } from "react"
+import { type Ref, forwardRef } from "react"
 import {
     useLink_unstable,
     useLinkState_unstable,
-    useLinkStyles_unstable, type LinkSlots, assertSlots
+    useLinkStyles_unstable, type LinkSlots, assertSlots,
+    type ForwardRefComponent
 } from "@fluentui/react-components"
 import {
     NavLink as RemixNavLink,
@@ -16,7 +17,7 @@ export type RouteNavLinkProps = Omit<RouteLinkProps, "className" | "style" | "ch
  *  * A RouteNavLink is a reference to data that a user can follow by clicking or tapping it.
  * A wrapper that knows if it's "active" or not.
 */
-const RouteNavLink: React.ForwardRefExoticComponent<RouteNavLinkProps> = forwardRef((props: RouteNavLinkProps, ref: Ref<HTMLAnchorElement>) => {
+const RouteNavLink: ForwardRefComponent<RouteNavLinkProps> = forwardRef((props: RouteNavLinkProps, ref: Ref<HTMLAnchorElement>) => {
     // @ts-expect-error ignore
     const state = useLink_unstable({ ...{ as: "a" }, ...props }, ref)
     useLinkStyles_unstable(state)
