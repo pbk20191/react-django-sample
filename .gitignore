@@ -1,0 +1,4 @@
+dist
+.venv
+.public
+node_modules

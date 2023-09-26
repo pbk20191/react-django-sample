@@ -1,0 +1,92 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Project: install -all",
+			"type": "process",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"dependsOrder": "parallel",
+			"dependsOn":[
+				"npm: install - client",
+				"Project: install -server"
+			]
+		},
+		{
+			"type": "process",
+			"group": "build",
+			"label": "Django: migrate",
+			"options": {
+				"cwd": "${workspaceFolder}/server"
+			},
+			"command": "python3",
+			"args": ["manage.py", "migrate"]
+		},
+		{
+			"type": "process",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "bundle static files",
+			"detail": "tsc && vite build && django collect",
+			"dependsOn":[
+				"npm: build - client"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/server"
+			},
+			"command": "python3",
+			"args": ["manage.py", "collectstatic"]
+		},
+		{
+			"label": "python: create venv",
+			"type": "process",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"windows": {
+				"command": "py"
+			},
+			"hide": true,
+			"command": "python3",
+			"args": ["-m", "venv", ".venv"]
+		},
+		{
+			"label": "python: initiate venv",
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"hide": true,
+			"command":"source",
+			"args": [".venv/bin/activate"],
+			"windows": {
+				"command": ".venv\\Scripts\\activate.bat",
+				"args": []
+			}
+		},
+		{
+			"hide": true,
+			"label": "pip: install - requirements.txt",
+			"type": "shell",
+			"command": "${command:python.interpreterPath}",
+			"args": ["-m", "pip", "install", "-r", "requirements.txt"],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		},
+		{
+			"label": "Project: install -server",
+			"type": "process",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"dependsOrder": "sequence",
+			"dependsOn":[
+				"python: create venv",
+				"python: initiate venv",
+				"pip: install - requirements.txt"
+			]
+		}
+	]
+}
