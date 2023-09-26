@@ -87,6 +87,15 @@
 				"python: initiate venv",
 				"pip: install - requirements.txt"
 			]
+		},
+		{
+			"label": "pip: freeze",
+			"type": "shell",
+			"command": "${command:python.interpreterPath}",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"args": ["-m", "pip", "freeze", ">", "requirements.txt"]
 		}
 	]
 }
