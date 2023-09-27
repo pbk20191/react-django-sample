@@ -14,9 +14,9 @@ async def setup_python():
             cmd=".\\.venv\\Scripts\\activate.bat /d /c",
             cwd=os.getcwd()
         )
-        await process
+        await process.wait()
     else:
-        process = await asyncio.create_subprocess_shell(cmd="source .venv/bin/activate", cwd=os.curdir)
+        process = await asyncio.create_subprocess_shell(cmd="source .venv/bin/activate", cwd=os.getcwd())
         await process.wait()
     python_command = join(".venv", "bin", "python3")
     if os.name == 'nt':
@@ -25,7 +25,7 @@ async def setup_python():
     await process.wait()
 
 async def setup_node():
-    process = await asyncio.create_subprocess_exec("npm", "install", cwd=join(os.curdir, "client"))
+    process = await asyncio.create_subprocess_shell("npm install", cwd=join(os.getcwd(), "client"))
     await process.wait()
 
 async def setup_all():
