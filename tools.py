@@ -10,8 +10,7 @@ async def setup_python():
         await venv_process.wait()
     if os.name == 'nt':
         process = await asyncio.create_subprocess_shell(
-            executable="C:\\Windows\\system32\\cmd.exe",
-            cmd=".\\.venv\\Scripts\\activate.bat /d /c",
+            cmd="cmd /c .\\.venv\\Scripts\\activate.bat /d",
             cwd=os.getcwd()
         )
         await process.wait()
