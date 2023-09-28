@@ -15,22 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
-from django.conf.urls.static import static
-from django.views.static import serve
-from django.http import JsonResponse
+from django.urls import path, include, re_path
 from django.views.generic import RedirectView
-from django.http.request import HttpRequest
-
-def myView(request:HttpRequest):
-    request.session.save(False)
-    print(request.session)
-    return JsonResponse({ "value": True })
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/react/app/', permanent=True)),
+    path('', RedirectView.as_view(url='/react/app', permanent=True)),
     path('admin/', admin.site.urls),
-    path("api/myView", myView),
-    re_path(r'^react/app', serve, { 'path': '/index.html', 'document_root': '../client/dist/'}),
-    path('react/', RedirectView.as_view(url='/react/app', permanent=True))
-] + static('react/', document_root= '../client/dist/')
+    path('api/', include('api.urls')),
+    path('react/', include('react.urls'))
+]

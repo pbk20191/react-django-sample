@@ -4,7 +4,6 @@ import '../styles/landing.css'
 import React, { useState } from 'react'
 import { IndexRouteObject } from 'react-router-dom'
 
-
 const Landing: React.FC = () => {
     const [count, setCount] = useState(0)
 
@@ -24,10 +23,8 @@ const Landing: React.FC = () => {
           count is {count}
         </button>
         <button onClick={() => {
-          
           fetch('/api/myView', { method: "POST", credentials: 'include'})
           .then(value => {
-            console.log(value.redirected)
             return value.text()
           }).then(a => console.log(a))
         }}>Click to call fetch</button>

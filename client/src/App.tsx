@@ -3,6 +3,7 @@ import { useSystemTheme } from "./components/theme"
 import { ProvideToast } from "./components/toastCenter"
 import routes from "./routes"
 import { RouterProvider } from "react-router"
+import './utils/csrf_fetch'
 
 
 function App() {
