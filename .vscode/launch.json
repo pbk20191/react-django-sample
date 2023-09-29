@@ -17,7 +17,7 @@
             "request": "launch",
             "module": "hypercorn",
             "cwd": "${workspaceFolder}/server",
-            "args": ["app.asgi:application"]
+            "args": ["config.asgi:application"]
         },
         {
             "name": "Python: Django",
