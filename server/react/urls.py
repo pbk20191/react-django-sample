@@ -4,6 +4,6 @@ from django.views.static import serve
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/react/app', permanent=True)),
+    path('', RedirectView.as_view(url='./app', permanent=True)),
     re_path(r'^app', serve, { 'path': '/index.html', 'document_root': '../client/dist/'}),
 ] + static('/', document_root= '../client/dist/')

@@ -14,13 +14,13 @@
 			]
 		},
 		{
-			"type": "process",
+			"type": "shell",
 			"group": "build",
 			"label": "Django: migrate",
 			"options": {
 				"cwd": "${workspaceFolder}/server"
 			},
-			"command": "python3",
+			"command": "${command:python.interpreterPath}",
 			"args": ["manage.py", "migrate"]
 		},
 		{

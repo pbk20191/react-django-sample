@@ -7,7 +7,7 @@ const router = createBrowserRouter([
     {
         index: true,
         loader: () => {
-            return redirect("/app")
+            return redirect("./app", 301)
         }
     },
    {
