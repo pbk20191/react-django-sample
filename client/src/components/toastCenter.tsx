@@ -1,8 +1,6 @@
 import { useId, useToastController, Toaster } from "@fluentui/react-components"
 import React, { createContext, useContext, type PropsWithChildren } from "react"
 
-type ProvideToastProps = Pick<PropsWithChildren, "children">
-
 const defaultToastController = {
     dismissAllToasts: function (): void {
         throw new Error("dismissAllToasts not implemented.")
@@ -34,9 +32,8 @@ const ToastContext = createContext(defaultToastController)
 /**
  * provide ToastController and Toaster to the child context
 */
-export const ProvideToast: React.FC<ProvideToastProps> = (props: ProvideToastProps) => {
+export const ProvideToast: React.FC<PropsWithChildren> = (props) => {
     const toasterId = useId("toaster")
-
     const controller = useToastController(toasterId)
     return (
         <ToastContext.Provider value={controller}>

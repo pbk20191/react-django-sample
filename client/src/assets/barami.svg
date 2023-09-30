@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -7 400.665283203125 225" font-size="16px" color="#0a6342"
+    role="figure">
+    <title>Barami</title>
+    <desc>Be Artis of Robotics &amp; Advanced Micro Intelligence</desc>
+    <style>
+        @import url(https://fonts.cdnfonts.com/css/dolce-vita-heavy);
+
+        @font-face {
+            font-family: 'EF_watermelonSalad';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_watermelonSalad.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <defs>
+        <filter id="filter70" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
+            <feFlood flood-color="rgb(0,0,0)" flood-opacity=".4" in="SourceGraphic" result="flood" />
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="1.000000" />
+            <feOffset dx="3.000000" dy="3.000000" in="blur" result="offset" />
+            <feComposite in="flood" in2="offset" operator="in" result="comp1" />
+            <feComposite in="SourceGraphic" in2="comp1" result="comp2" />
+        </filter>
+    </defs>
+    <text fill="currentColor" dy="20px">
+        <tspan stroke="currentColor" font-size="1.66668em" letter-spacing="0.067em" stroke-width="1" x="0.3em"
+            font-family="Dolce Vita Light">
+            <tspan font-family="Dolce Vita Heavy">B</tspan>e
+            <tspan font-family="Dolce Vita Heavy">A</tspan>rtists of
+            <tspan font-family="Dolce Vita Heavy">R</tspan>obotics
+            <tspan font-family="Dolce Vita Heavy">&amp; </tspan>
+            <tspan x="0.3em" dy="1.3em">
+                <tspan font-family="Dolce Vita Heavy">A</tspan>dvanced
+                <tspan font-family="Dolce Vita Heavy">M</tspan>icro
+                <tspan font-family="Dolce Vita Heavy">I</tspan>ntelligence
+            </tspan>
+        </tspan>
+        <tspan fill="currentColor" filter="url(#filter70)" x="0em" dy="1em" stroke="currentColor" font-size="8.35em"
+            letter-spacing="0em" stroke-width="2" font-weight="bold" font-family="EF_watermelonSalad">바라미</tspan>
+    </text>
+</svg>
