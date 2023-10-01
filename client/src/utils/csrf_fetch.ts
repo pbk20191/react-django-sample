@@ -19,9 +19,19 @@ window.fetch = async (input, init) => {
     if (csrf_cookie == null || csrf_cookie == undefined) {
         return await orgin_fetch(input, init)
     } else if (init == undefined) {
-        init = { headers: {"X-CSRFToken": csrf_cookie}}
+        let headers = new Headers()
+        if (input instanceof Request) {
+            headers = input.headers
+        }
+        headers.set("X-CSRFToken", csrf_cookie)
+        init = { headers: headers }
     } else if (init.headers == undefined) {
-        init.headers = {"X-CSRFToken": csrf_cookie}
+        let headers = new Headers()
+        if (input instanceof Request) {
+            headers = input.headers
+        }
+        headers.set("X-CSRFToken", csrf_cookie)
+        init.headers = headers
     } else {
         if (init.headers instanceof Headers) {
             init.headers.append("X-CSRFToken", csrf_cookie)
