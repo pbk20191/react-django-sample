@@ -17,7 +17,8 @@ export default defineConfig({
     react(),
     svgr({
       include: [
-        "src/**/*.svg"
+        "src/**/*.svg",
+        "assets/**/*.svg"
       ],
       namedExport: "ReactComponent",
       exportType: "named"

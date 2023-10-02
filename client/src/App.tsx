@@ -6,7 +6,7 @@ import { RouterProvider } from "react-router"
 import './utils/csrf_fetch'
 
 
-function App() {
+const App: React.FC = () => {
   const theme = useSystemTheme()
 
   return (
@@ -19,5 +19,6 @@ function App() {
     </>
   )
 }
+App.displayName = "App"
 
 export default App

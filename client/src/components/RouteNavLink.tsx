@@ -22,7 +22,7 @@ const RouteNavLink: ForwardRefComponent<RouteNavLinkProps> = forwardRef((props: 
     const state = useLink_unstable({ ...{ as: "a" }, ...props }, ref)
     useLinkStyles_unstable(state)
     useLinkState_unstable(state)
-    if (state.root.as !== "a") {
+    if (state.root.as === "a") {
         state.root.as = undefined
     }
     assertSlots<LinkSlots>(state)

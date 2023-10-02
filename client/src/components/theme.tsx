@@ -6,7 +6,7 @@ import {
 } from "@fluentui/react-components"
 import { useEffect, useState } from "react"
 
-const atarasiibarami: BrandVariants = Object.freeze({
+const atarasiibarami: Readonly<BrandVariants> = Object.freeze({
     10: "#030403",
     20: "#151A17",
     30: "#212C25",
