@@ -1,6 +1,6 @@
 import { Outlet, createBrowserRouter, redirect } from "react-router-dom"
 import landing from "./landing"
-import apple from "./apple"
+import question from "./question"
 
 
 const router = createBrowserRouter([
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
    {
     path: "app",
     element: <Outlet/>,
-    children: [landing, apple]
+    children: [landing, question]
    }
 ], { basename: "/react"})
 
