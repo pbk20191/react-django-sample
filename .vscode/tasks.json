@@ -33,9 +33,9 @@
 				"npm: build - client"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/server"
+				"cwd": "${workspaceFolder}/server",
 			},
-			"command": "python3",
+			"command":"${command:python.interpreterPath}",
 			"args": ["manage.py", "collectstatic"]
 		},
 		{
