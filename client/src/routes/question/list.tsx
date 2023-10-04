@@ -26,6 +26,7 @@ const QuestionView: React.FC = () => {
             </RouteLink>
         </nav>
         {
+            questionList.results.length > 0 ?
                 questionList.results.map(item => {
                     return <Card key={item.id} orientation="horizontal">
                         <div style={{ display: "flex", flexDirection: "column"}}>
@@ -70,6 +71,11 @@ const QuestionView: React.FC = () => {
                         </div>
                     </Card>
                 })
+                :
+                <Text>
+                    No Question to show <br/>
+                    please add a question
+                </Text>
         }
     </div>
     )
