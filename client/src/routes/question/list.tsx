@@ -3,7 +3,7 @@ import { IndexRouteObject, useLoaderData, useRevalidator } from "react-router-do
 import { QuestionResponse } from "../../types/question"
 import { Text, Card, Dialog, DialogTitle, DialogBody, DialogTrigger, Button, DialogContent, DialogSurface, DialogActions, Toast, ToastTitle, useId } from "@fluentui/react-components"
 import RouteLink from "../../components/RouteLink"
-import {Delete24Regular} from "@fluentui/react-icons"
+import {Delete24Regular, Add24Regular } from "@fluentui/react-icons"
 import { useToastCenter } from "../../components/toastCenter"
 
 
@@ -20,8 +20,10 @@ const QuestionView: React.FC = () => {
 
     return (
     <div>
-        <nav>
-            <RouteLink to="create">Create new Question</RouteLink>
+        <nav style={{ display: "flex", flexDirection:"row-reverse"}}>
+            <RouteLink to="create">
+                <Add24Regular/>
+            </RouteLink>
         </nav>
         {
                 questionList.results.map(item => {
